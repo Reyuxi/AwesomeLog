@@ -30,6 +30,11 @@ public final class ALog {
         }
 
         ConfigCenter configCenter = ConfigCenter.getInstance();
+        configCenter.setMaxKeepDaily(logConfig.getMaxKeepDaily());
+        configCenter.setMaxLogSizeMb(logConfig.getMaxLogSizeMb());
+        configCenter.setLogPath(logConfig.getLogPath());
+        configCenter.setCachePath(logConfig.getCachePath());
+
         if (sDiskLogPrinter == null && sAndroidLogPrinter == null) {
             final Context applicationContext = logConfig.getContext().getApplicationContext();
             configCenter.setContext(applicationContext);
@@ -45,10 +50,6 @@ public final class ALog {
             sLogger.addPrinter(sAndroidLogPrinter);
             NetworkManager.getInstance().registerNetworChangeListener(applicationContext);
         }
-        configCenter.setMaxKeepDaily(logConfig.getMaxKeepDaily());
-        configCenter.setMaxLogSizeMb(logConfig.getMaxLogSizeMb());
-        configCenter.setmLogPath(logConfig.getmLogPath());
-        configCenter.setmCachePath(logConfig.getmCachePath());
 
         try {
             Reflection.unseal(logConfig.getContext());

@@ -58,20 +58,20 @@ public class LogConfig {
         return this;
     }
 
-    public String getmLogPath() {
+    public String getLogPath() {
         return mLogPath;
     }
 
-    public LogConfig setmLogPath(String mLogPath) {
+    public LogConfig setLogPath(String mLogPath) {
         this.mLogPath = mLogPath;
         return this;
     }
 
-    public String getmCachePath() {
+    public String getCachePath() {
         return mCachePath;
     }
 
-    public LogConfig setmCachePath(String mCachePath) {
+    public LogConfig setCachePath(String mCachePath) {
         this.mCachePath = mCachePath;
         return this;
     }

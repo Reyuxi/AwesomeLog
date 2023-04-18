@@ -24,7 +24,7 @@ public class DiskDailyLogStrategy implements DiskLogStrategy {
     }
 
     private void initNativeLogger() {
-        LightLog.newInstance().init(ConfigCenter.getInstance().getmCachePath(),
+        LightLog.newInstance().init(ConfigCenter.getInstance().getCachePath(),
                                     ConfigCenter.getInstance().getLogPath(),
                 ConfigCenter.getInstance().getMaxLogSizeMb(),
                 ConfigCenter.getInstance().getMaxKeepDaily());

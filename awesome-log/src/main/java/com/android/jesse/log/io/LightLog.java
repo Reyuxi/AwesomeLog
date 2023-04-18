@@ -16,6 +16,7 @@ import java.nio.ReadOnlyBufferException;
 import java.nio.channels.FileChannel;
 
 public class LightLog {
+    private final static String EXTENSION = ".log";
     private static final long KB = 1024;
     private static final long MB = 1024 * KB;
     private static final long DEFAULT_CACHE_SIZE = 1 * KB;
@@ -70,7 +71,10 @@ public class LightLog {
             return;
         }
         String cachePath = getCachePath();
-        String logPath = mPath + File.separator + date + ".log";
+        String logPath = mPath;
+        if (!TextUtils.isEmpty(logPath) && !logPath.endsWith(EXTENSION)) {
+            logPath += EXTENSION;
+        }
         File cacheFile = new File(cachePath);
         if (!cacheFile.exists()) {
             return;
@@ -240,7 +244,8 @@ public class LightLog {
         if (TextUtils.isEmpty(mCachePath)) {
             throw new RuntimeException("init method is not invoked");
         }
-        return mCachePath + File.separator + "cache.log";
+        if (!mCachePath.endsWith(EXTENSION)) mCachePath += EXTENSION;
+        return mCachePath;
     }
 
     private MappedByteBuffer getMappedByteBuffer() {

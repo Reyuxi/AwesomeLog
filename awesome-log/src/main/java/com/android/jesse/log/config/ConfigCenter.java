@@ -16,6 +16,7 @@ public class ConfigCenter {
      */
     private static final double DEFAULT_LOG_FILE_SIZE_MB = 70;
 
+    private static final String DEFAULT_LOG_FILE_NAME = "a_log";
 
     /**
      * 日志最大保存天数
@@ -72,18 +73,18 @@ public class ConfigCenter {
         return mLogPath;
     }
 
-    public String getmCachePath() {
+    public String getCachePath() {
         if (TextUtils.isEmpty(mCachePath)) {
             mCachePath = getDefaultCachePath();
         }
         return mCachePath;
     }
 
-    public void setmLogPath(String mLogPath) {
+    public void setLogPath(String mLogPath) {
         this.mLogPath = mLogPath;
     }
 
-    public void setmCachePath(String mCachePath) {
+    public void setCachePath(String mCachePath) {
         this.mCachePath = mCachePath;
     }
 
@@ -107,7 +108,8 @@ public class ConfigCenter {
         if (!logFile.exists()) {
             logFile.mkdirs();
         }
-        return mPath;
+        logFile = new File(logFile, DEFAULT_LOG_FILE_NAME);
+        return logFile.getAbsolutePath();
     }
 
     private String getDefaultCachePath() {
@@ -116,7 +118,8 @@ public class ConfigCenter {
         if (!logFile.exists()) {
             logFile.mkdirs();
         }
-        return mPath;
+        logFile = new File(logFile, DEFAULT_LOG_FILE_NAME + "_cache");
+        return logFile.getAbsolutePath();
     }
 
 }

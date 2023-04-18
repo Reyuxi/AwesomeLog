@@ -1,2 +1,21 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        maven {
+            url 'https://www.jitpack.io'
+        }
+        mavenCentral()
+        google()
+        jcenter()
+    }
+}
+
 include ':app', ':awesome-log'
 rootProject.name='AwesomeLog'
