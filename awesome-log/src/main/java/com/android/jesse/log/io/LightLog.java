@@ -1,5 +1,6 @@
 package com.android.jesse.log.io;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 
 import com.android.jesse.log.util.DateUtil;
@@ -289,7 +290,7 @@ public class LightLog {
         }
         try {
             Class<?> clazz = Class.forName("sun.nio.ch.FileChannelImpl");
-            Method m = clazz.getDeclaredMethod("unmap", MappedByteBuffer.class);
+            @SuppressLint("BlockedPrivateApi") Method m = clazz.getDeclaredMethod("unmap", MappedByteBuffer.class);
             m.setAccessible(true);
             m.invoke(null, mbbi);
         } catch (Throwable e) {
