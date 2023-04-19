@@ -32,7 +32,7 @@ AwesomeLog 是一个基于mmap， 高性能，高可用的，无丢失的，简�
 
    ```groovy
    dependencies {
-   	        implementation 'com.github.Jesse505:AwesomeLog:1.0.7'
+   	        implementation 'com.github.Reyuxi:AwesomeLog:1.0.8'
    	}
    ```
 
