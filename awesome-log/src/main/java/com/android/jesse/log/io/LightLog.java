@@ -176,7 +176,7 @@ public class LightLog {
             if (mbbi != null) {
                 mbbi.put(log);
             }
-        } catch (BufferOverflowException e) {
+        } catch (BufferOverflowException ignored) {
             //缓存区满了则flush到日志文件
             String currentDate = DateUtil.getDateStr(System.currentTimeMillis());
             flush(currentDate);
@@ -185,9 +185,8 @@ public class LightLog {
             if (mbbi != null) {
                 mbbi.put(log);
             }
-            e.printStackTrace();
-        } catch (ReadOnlyBufferException e) {
-            e.printStackTrace();
+        } catch (ReadOnlyBufferException ignored) {
+
         }
     }
 
