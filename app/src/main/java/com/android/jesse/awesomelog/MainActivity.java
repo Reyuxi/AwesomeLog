@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //初始化日志系统
         ALog.init(new LogConfig(this)
-                .setCachePath(getExternalCacheDir().getPath() + File.separator + "awesome_log_cache")
+                .setCachePath(getExternalCacheDir().getAbsolutePath() + File.separator + "awesome_log_cache")
                 .setLogPath(getExternalFilesDir(null) + File.separator + "log" + File.separator + "awesome_log"));
     }
 
