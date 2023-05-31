@@ -182,12 +182,18 @@ public class LightLog {
             String currentDate = DateUtil.getDateStr(System.currentTimeMillis());
             flush(currentDate);
 
-            MappedByteBuffer mbbi = getMappedByteBuffer();
-            if (mbbi != null) {
-                mbbi.put(log);
+            try {
+                MappedByteBuffer mbbi = getMappedByteBuffer();
+                if (mbbi != null) {
+                    mbbi.put(log);
+                }
+            } catch (Exception be) {
+                be.printStackTrace();
             }
         } catch (ReadOnlyBufferException ignored) {
 
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
